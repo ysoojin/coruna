@@ -262,7 +262,7 @@ let m_57620206d62079baad0e57e6d9ec93120c0f5247 = () => {
    * and conversion to/from doubles, BigInts, and JS numbers.
    */
   class Int64 {
-    // Wrapper for compatibility with obsfucated modules
+    // Wrapper for compatibility with obfuscated modules
     static ut(t) {return Int64.fromNumber(t);}
     static ot(t) {return Int64.fromBigInt(t);}
     static st(t) {return Int64.fromUnsigned(t);}
