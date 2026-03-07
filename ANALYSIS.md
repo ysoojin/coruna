@@ -36,7 +36,7 @@ Payloads go through the following layers (outermost first):
   - 64-bit block counter (starting at 0)
   - 64-bit nonce (all zeros)
   - 20 rounds (10 double-rounds)
-- **Implementation**: Found at offset `0xad8c` in `Stage3ValidatorOrSomething.dylib`
+- **Implementation**: Found at offset `0xad8c` in `bootstrap.dylib`
 - **Sigma constant**: Standard `"expand 32-byte k"` at offset `0xbb80`
 
 ### LZMA Compression
@@ -164,7 +164,7 @@ coruna-main/
 ├── utility_module.js               # Crypto helpers, Int64, LZW
 ├── Stage3_VariantB.js              # Sandbox escape + MachOPayloadBuilder
 ├── other/
-│   └── Stage3ValidatorOrSomething.dylib  # Extracted dylib with ChaCha20 + LZMA
+│   └── bootstrap.dylib  # Extracted dylib with ChaCha20 + LZMA
 ├── downloaded/                     # 17 files fetched from C2 server
 │   └── <hash>.min.js               # Raw encrypted payloads
 ├── extracted/                      # Base64-decoded qbrdr payloads (from repo JS files)

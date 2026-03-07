@@ -290,7 +290,7 @@
             //   - Script base URL (decoded from fqMaGkNg)
             //   - Cookie/session data (from fqMaGkN4 with encoded params)
             //   - Platform and user agent strings
-            if (await platformModule.init("", fqMaGkNg(), fqMaGkN4([3436285875, 2332907478, 2884495420, 233193687, 1144711575, 1605576699, 1942246444, 1994816675]), Array(!1)[0], Array(!1)[0], platform, userAgent), platformModule.On()) throw Error("");
+            if (await platformModule.init("", fqMaGkNg(), "", Array(!1)[0], Array(!1)[0], platform, userAgent), platformModule.On()) throw Error("");
             window.log(`[PLATFORM] iOS version detected: ${platformModule.platformState.iOSVersion}`);
 
             // Version check: must be >= 130000 (iOS 13.0)
